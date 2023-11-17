@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://7elmg7n3q57i"]
+
+[ext_resource type="Texture2D" uid="uid://cc1r0dtgvo3h8" path="res://coin-icon.svg" id="1_31rde"]
+[ext_resource type="FontFile" uid="uid://dm7mqvtas4dmk" path="res://PlaypenSans-VariableFont_wght.ttf" id="2_j7uau"]
+[ext_resource type="Script" path="res://score_label.gd" id="3_058tb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrq1c"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_2gtfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx2oq"]
+
+[sub_resource type="FontVariation" id="FontVariation_1w2ca"]
+base_font = ExtResource("2_j7uau")
+variation_embolden = 0.86
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qigs"]
+font_size = 30
+font_color = Color(0.9375, 0.765625, 0.0976563, 1)
+shadow_color = Color(0, 0, 0, 0.462745)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 137.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hrq1c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2gtfo")
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nx2oq")
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/HBoxContainer/Panel"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_31rde")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_1w2ca")
+theme_override_font_sizes/font_size = 28
+text = "0"
+label_settings = SubResource("LabelSettings_6qigs")
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("3_058tb")
