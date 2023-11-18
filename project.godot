@@ -13,11 +13,17 @@ config_version=5
 config/name="Platformer HelloWorld"
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Fall (32x32).png"
 
 [autoload]
 
 Global="*res://Global.gd"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=720
+window/size/resizable=false
 
 [dotnet]
 
